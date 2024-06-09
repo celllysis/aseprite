@@ -10,7 +10,7 @@ jobs:
         build_type: [Release]
         enable_ui: [on]
         include:
-          - os: ubuntu-latest
+          - os: windows-latest
             build_type: Release
             enable_ui: on
     steps:
@@ -41,7 +41,7 @@ jobs:
         else
           export enable_ccache=on
         fi
-        curl -L http://github.com/blueloveTH/aseprite/releases/download/v0.01/skia.z
+        curl -L http://github.com/blueloveTH/aseprite/releases/download/v0.01/skia.zip -- output skia.zip
         7z x skia.zip
         cmake -S . -B build -G Ninja \
           -DENABLE_UI=${{ matrix.enable_ui }} \
